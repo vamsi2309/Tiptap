@@ -19,8 +19,7 @@ const Tiptap = ({ onChange, content }: TiptapProps) => {
         extensions: [StarterKit, Underline],
         editorProps: {
             attributes: {
-                class:
-                    "flex flex-col px-4 py-3 justify-start border border-gray-300 text-black items-start w-full gap-3 font-medium text-[16px] pt-4 rounded-b-md outline-none caret-black", // Ensures black cursor
+                class: "flex flex-col px-4 py-3 justify-start border border-gray-300 text-black items-start w-full gap-3 font-medium text-[16px] pt-4 rounded-b-md outline-none caret-black h-[200px]  overflow-y-auto whitespace-pre-wrap"
             },
         },
         content: content || "&nbsp;",
@@ -35,9 +34,13 @@ const Tiptap = ({ onChange, content }: TiptapProps) => {
             <Toolbar editor={editor} content={content} />
             <EditorContent
                 editor={editor}
-                style={{ whiteSpace: "pre-line" }}
+                // style={{
+                //     // whiteSpace: "pre-line",
+                //     height: "200px", // Fixed height
+                //     width: "400px", // Fixed width
+                //     overflowY: "auto", // Scroll when content exceeds the height
+                // }}
                 className="border-t border-gray-300"
-                onClick={() => editor?.commands.focus()} // Ensure focus on click
             />
         </div>
     );
